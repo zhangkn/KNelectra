@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self checkVersion];
+//    [self checkVersion];
     
     NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
     
@@ -65,7 +65,16 @@
         [notificationCenter addObserver:self selector:@selector(doit:) name:@"Jailbreak" object:nil];
     }
   // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    // 直接执行doit
+    
+    [self doit:nil];
+    
 }
+
+
+// 文字说明
 
 - (IBAction)credits:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Credits" message:@"Electra is brought to you by CoolStar, Ian Beer, theninjaprawn, stek29, Siguza and xerub.\n\nElectra includes the following software:\namfid patch by theninjaprawn\njailbreakd & tweak injection by CoolStar\nunlocknvram & sandbox fixes by stek29\nlibsubstitute by comex\nContains code from simject by angelXwind\nAnemone by CoolStar, kirb, isklikas and goeo\nPreferenceLoader by DHowett & rpetrich" preferredStyle:UIAlertControllerStyleAlert];
@@ -73,6 +82,11 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+
+
+
+
+// jailbreak 的执行动作
 - (IBAction)doit:(id)sender {
     [jailbreak setEnabled:NO];
     [enableTweaks setEnabled:NO];
